@@ -108,13 +108,16 @@ package %s
 
 import (
 	"%s"
+	"reflect"
+
+	"github.com/mattn/anko/env"
 )
 
 func init() {
-	Packages["%s"] = map[string]interface{}{
+	env.Packages["%s"] = map[string]reflect.Value{
 `, pn, pkg, pn, pkg, pn)
 		for _, k := range keys {
-			fmt.Printf(`	"%s": %s.%s,`+"\n", k, pn, k)
+			fmt.Printf(`	"%s": reflect.ValueOf(%s.%s),`+"\n", k, pn, k)
 		}
 		fmt.Println(`	}
 }`)

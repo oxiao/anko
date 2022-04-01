@@ -141,7 +141,6 @@ func ImportToX(e *env.Env) {
 	e.Define("toDuration", func(v int64) time.Duration {
 		return time.Duration(v)
 	})
-
 }
 
 // toSlice takes in a "generic" slice and converts and copies
